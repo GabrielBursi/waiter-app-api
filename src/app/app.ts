@@ -3,7 +3,7 @@ import express from 'express'
 const app = express()
 app.disable('x-powered-by')
 
-app.use(cors({ origin: 'http://localhost:3333' }))
+app.use(cors({ origin: process.env.FRONT_URL }))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
