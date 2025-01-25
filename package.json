@@ -11,7 +11,9 @@
 		"prettier:fix": "prettier --write .",
 		"prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
 		"format": "npm run lint:fix && npm run prettier:fix",
-		"prepare": "husky"
+		"prepare": "husky",
+		"build": "tsc",
+		"start": "node build/server.js"
 	},
 	"dependencies": {
 		"cookie-parser": "^1.4.6",
