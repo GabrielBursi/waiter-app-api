@@ -3,6 +3,7 @@ import { createCategory, listCategories, listProductsByCategory } from './useCas
 import multer from 'multer';
 import path from 'path';
 import { createProduct } from './useCases/products';
+import { cancelOrder, changeOrderStatus, createOrder, listOrders } from './useCases/orders';
 
 export const router = Router();
 
@@ -37,13 +38,13 @@ router.post('/products', upload.single("image"), createProduct);
 router.get('/categories/:categoryId/products', listProductsByCategory);
 
 // List orders
-router.get('/orders', (_req, res) => res.send('HELLO!'));
+router.get('/orders', listOrders);
 
 // Create order
-router.post('/orders', (_req, res) => res.send('HELLO!'));
+router.post('/orders', createOrder);
 
 // Change order status
-router.patch('/orders/:orderId', (_req, res) => res.send('HELLO!'));
+router.patch('/orders/:orderId', changeOrderStatus);
 
 // Delete/cancel order
-router.delete('/orders/:orderId', (_req, res) => res.send('HELLO!'));
+router.delete('/orders/:orderId', cancelOrder);
