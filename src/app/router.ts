@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createCategory, listCategories } from './useCases/categories';
+import { createCategory, listCategories, listProductsByCategory } from './useCases/categories';
 import multer from 'multer';
 import path from 'path';
 import { createProduct } from './useCases/products';
@@ -34,7 +34,7 @@ router.get('/products', (_req, res) => res.send('HELLO!'));
 router.post('/products', upload.single("image"), createProduct);
 
 // Get products by category
-router.get('/categories/:categoryId/products', (_req, res) => res.send('HELLO!'));
+router.get('/categories/:categoryId/products', listProductsByCategory);
 
 // List orders
 router.get('/orders', (_req, res) => res.send('HELLO!'));
